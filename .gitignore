@@ -1,0 +1,11 @@
+################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/Andromeda/v16/Server/sqlite3/db.lock
+/.vs/Andromeda/v16/Server/sqlite3/storage.ide
+/.vs/Andromeda/v16/Server/sqlite3/storage.ide-shm
+/.vs/Andromeda/v16/Server/sqlite3/storage.ide-wal
+/.vs/Andromeda/DesignTimeBuild/.dtbcache
+/.vs/Andromeda/v16/.suo
+/Andromeda.Infrastructure/Migrations
