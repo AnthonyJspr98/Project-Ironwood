@@ -33,11 +33,17 @@
     <Compile Remove="Migrations\20201011062412_testing.Designer.cs" />
     <Compile Remove="Migrations\20201011063611_seed.cs" />
     <Compile Remove="Migrations\20201011063611_seed.Designer.cs" />
+    <Compile Remove="Migrations\20201027114624_InitialMig.cs" />
+    <Compile Remove="Migrations\20201027114624_InitialMig.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Ironwood.Application\Ironwood.Application.csproj" />
     <ProjectReference Include="..\Ironwood.Domain\Ironwood.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
