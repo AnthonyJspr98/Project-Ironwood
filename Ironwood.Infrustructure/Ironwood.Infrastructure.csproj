@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200828064503_testing.cs" />
+    <Compile Remove="Migrations\20200828064503_testing.Designer.cs" />
+    <Compile Remove="Migrations\20200828072010_init.cs" />
+    <Compile Remove="Migrations\20200828072010_init.Designer.cs" />
+    <Compile Remove="Migrations\20200828072354_init.cs" />
+    <Compile Remove="Migrations\20200828072354_init.Designer.cs" />
+    <Compile Remove="Migrations\20200828073644_initial.cs" />
+    <Compile Remove="Migrations\20200828073644_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200924103756_try.cs" />
+    <Compile Remove="Migrations\20200924103756_try.Designer.cs" />
+    <Compile Remove="Migrations\20200925061902_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200925061902_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200925062821_RemoveRequireColoumn.cs" />
+    <Compile Remove="Migrations\20200925062821_RemoveRequireColoumn.Designer.cs" />
+    <Compile Remove="Migrations\20200925063006_Initial.cs" />
+    <Compile Remove="Migrations\20200925063006_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20200925085028_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200925085028_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200928124317_InitialMigration.cs" />
+    <Compile Remove="Migrations\20200928124317_InitialMigration.Designer.cs" />
+    <Compile Remove="Migrations\20200930025945_initial.cs" />
+    <Compile Remove="Migrations\20200930025945_initial.Designer.cs" />
+    <Compile Remove="Migrations\20200930032749_try.cs" />
+    <Compile Remove="Migrations\20200930032749_try.Designer.cs" />
+    <Compile Remove="Migrations\20201011062412_testing.cs" />
+    <Compile Remove="Migrations\20201011062412_testing.Designer.cs" />
+    <Compile Remove="Migrations\20201011063611_seed.cs" />
+    <Compile Remove="Migrations\20201011063611_seed.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Ironwood.Application\Ironwood.Application.csproj" />
+    <ProjectReference Include="..\Ironwood.Domain\Ironwood.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

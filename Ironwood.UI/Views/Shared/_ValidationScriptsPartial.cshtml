@@ -1,0 +1,21 @@
+﻿<script>
+    function OnFailure(e) {
+        console.log(e);
+        AppNotification.error(e);
+        $('form :input').prop('disabled', false);
+    }
+
+    function OnBegin(e) {
+        $('form :input').prop('disabled', true);
+    }
+
+    $('form').attr('data-ajax-begin', 'OnBegin');
+    $('form').attr('data-ajax-failure', 'OnFailure');
+    $('form').attr('data-ajax', true);
+    $('form').attr('data-ajax-method', 'POST');
+</script>
+
+<script> $('form').attr('data-ajax', true);</script>
+<script src="~/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js"></script>
+<script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
