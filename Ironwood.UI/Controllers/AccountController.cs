@@ -1,7 +1,9 @@
-﻿using Ironwood.Application.Users.Commands;
+﻿using Ironwood.Application.Accounts.Commands;
+using Ironwood.Application.Users.Commands;
 using Ironwood.Application.Users.Queries;
 using Ironwood.Enums;
 using Ironwood.UI.Controllers.Base;
+using Ironwood.UI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
@@ -46,6 +48,21 @@ namespace Ironwood.UI.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> SaveChanges(UpdateProfileCommand command)
+        {
+            await Mediator.Send(command);
+
+            await WriteOnlyDbContext.SaveChangesAsync();
+
+            return Json(true);
+        }
+
+        [Route("/AccountSettings")]
+        public async Task<IActionResult> AccountSettings()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> ChangePassword(ChangePasswordCommand command)
         {
             await Mediator.Send(command);
 

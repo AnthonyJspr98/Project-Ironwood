@@ -13,7 +13,7 @@ namespace Ironwood.Application.Accounts.Commands
     public class ChangePasswordCommand : IRequest
     {
         public string NewPassword { get; set; }
-        public string ConfirmPassword { get; set; }
+        public string ConfirmNewPassword { get; set; }
         public string CurrentPassword { get; set; }
 
         public class ChangePasswordCommandHandler : AsyncRequestHandler<ChangePasswordCommand>
@@ -38,7 +38,7 @@ namespace Ironwood.Application.Accounts.Commands
                     .Include(a => a.UserLogin)
                     .SingleOrDefaultAsync(a => a.UID == currentUser.UID);
 
-                if (request.NewPassword == request.ConfirmPassword)
+                if (request.NewPassword == request.ConfirmNewPassword)
                 {
                     if (passwordHasher.IsPasswordVerified(_user.UserLogin.Salt, _user.UserLogin.Password, request.CurrentPassword))
                     {
