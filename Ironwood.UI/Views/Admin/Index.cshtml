@@ -1,0 +1,45 @@
+﻿@using Ironwood.Application.Vouchers.Commands
+@model CreateVoucherCodeCommand
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+@section Scripts {
+    <script type="text/javascript">
+        function OnSuccess(e) {
+            console.log(e);
+            $('.voucher-render').(e);
+        }
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+}
+
+<h1>Admin Dashboard</h1>
+
+<div class="main-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-5">
+                <div class="form-group register-form-group">
+                    <form asp-action="GenerateVoucher" asp-controller="Admin" data-ajax-success="OnSuccess">
+                        <label asp-for="Value">Generate Voucher Code</label>
+                        <select asp-for="Value" class="form-control" required>
+                            <option value="200">200</option>
+                            <option value="500">500</option>
+                            <option value="1000">1000</option>
+                        </select>
+                        <div class="form-group text-center">
+                            <button class="btn btn-outline-primary mt-3 form-control" type="submit">Generate</button>
+                        </div>
+                    </form>                   
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-group" id="voucher-render">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -24,6 +24,7 @@ namespace Ironwood.Domain.Entities
 
         public UserLogin UserLogin { get; set; }
         public Wallet Wallet { get; set; }
+        
 
     }
 }

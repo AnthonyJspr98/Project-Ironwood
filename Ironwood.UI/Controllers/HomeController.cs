@@ -22,7 +22,7 @@ namespace Ironwood.UI.Controllers
             {
                 if (User.IsInRole(AccessRole.Admin.ToString()))
                 {
-                    return View("~/Views/Home/AdminDashboard.cshtml");
+                    return View("~/Views/Admin/Index.cshtml");
                 }
                 else
                 {

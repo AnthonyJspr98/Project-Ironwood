@@ -75,7 +75,7 @@ namespace Ironwood.Application.Users.Commands
         {
             public RegisterCommandValidator()
             {
-                RuleFor(a => a.FirstName).NotNull().MaximumLength(100);
+                RuleFor(a => a.FirstName).NotNull().MaximumLength(100).WithMessage("Required");
                 RuleFor(a => a.MiddleName).MaximumLength(100);
                 RuleFor(a => a.LastName).NotNull().MaximumLength(100);
                 RuleFor(a => a.EmailAddress).NotNull().MaximumLength(320);               

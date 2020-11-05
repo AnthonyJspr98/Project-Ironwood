@@ -35,14 +35,7 @@ namespace Ironwood.UI.Controllers
                 Country = _userData.Country            
             };
 
-            List<SelectListItem> GenderList = new List<SelectListItem>
-            { 
-                new SelectListItem { Text = Gender.Male.ToString(), Value = Gender.Male.ToString()},
-                new SelectListItem { Text = Gender.Female.ToString(), Value = Gender.Female.ToString()}
-            };
-
-            ViewBag.Gender = new SelectList(GenderList, "Value", "Text", _userData.Gender);
-
+          
             return View(_userModel);
         }
         [HttpPost]
@@ -59,7 +52,36 @@ namespace Ironwood.UI.Controllers
         [Route("/AccountSettings")]
         public async Task<IActionResult> AccountSettings()
         {
-            return View();
+            var _userData = await Mediator.Send(new GetUserQuery { UID = CurrentUser.UID });
+
+            var _userModel = new UpdateProfileCommand
+            {
+
+                Firstname = _userData.FirstName,
+                Middlename = _userData.MiddleName,
+                Lastname = _userData.LastName,
+                BirthDate = _userData.BirthDate,
+                Gender = _userData.Gender,
+                Email = _userData.EmailAddress,
+                MobileNumber = _userData.MobileNumber,
+                HouseNumAndStreet = _userData.Address,
+                City = _userData.City,
+                Country = _userData.Country
+            };
+
+            List<SelectListItem> GenderList = new List<SelectListItem>
+            {
+                new SelectListItem { Text = Gender.Male.ToString(), Value = Gender.Male.ToString()},
+                new SelectListItem { Text = Gender.Female.ToString(), Value = Gender.Female.ToString()}
+            };
+
+            ViewBag.Gender = new SelectList(GenderList, "Value", "Text", _userData.Gender);
+
+            AccountSettingsVM accountSettingsVM = new AccountSettingsVM
+            {
+                UpdateProfile = _userModel
+            };
+            return View(accountSettingsVM);
         }
 
         public async Task<IActionResult> ChangePassword(ChangePasswordCommand command)

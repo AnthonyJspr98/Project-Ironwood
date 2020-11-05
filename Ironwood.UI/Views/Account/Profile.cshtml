@@ -6,45 +6,34 @@
 
 }
 
-@section Scripts{
-    <script type="text/javascript">
-
-        function OnSuccess() {
-            alert("Saved");
-        }
-
-    </script>
-    <partial name="_ValidationScriptsPartial" />
-}
-
 <div class="main-content">
     <div class="container pb-3">
         <div class="row">
             <div class="col">
-                <form asp-action="SaveChanges" asp-controller="Account" data-ajax-success="OnSuccess">
+                <form>
                     <div class="text-center">
                         <h4>Profile</h4>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label asp-for="Firstname">First Name</label>
-                            <input asp-for="Firstname" class="form-control">
+                            <input asp-for="Firstname" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label asp-for="Middlename">Middle Name</label>
-                            <input asp-for="Middlename" class="form-control">
+                            <input asp-for="Middlename" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label asp-for="Lastname">Last Name</label>
-                            <input asp-for="Lastname" class="form-control">
+                            <input asp-for="Lastname" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label asp-for="Gender">Gender</label>
-                            @Html.DropDownListFor(model => model.Gender, ViewBag.Gender as IEnumerable<SelectListItem>, new { @class = "form-control" })
+                            <input asp-for="Gender" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label asp-for="BirthDate">Birth Date</label>
-                            <input asp-for="BirthDate" class="form-control">
+                            <input asp-for="BirthDate" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="form-row">
@@ -54,24 +43,23 @@
                         </div>
                         <div class="form-group col-md-5">
                             <label asp-for="MobileNumber">Mobile Number</label>
-                            <input asp-for="MobileNumber" class="form-control">
+                            <input asp-for="MobileNumber" class="form-control" readonly>
                         </div>
                     </div>
                     <div class="form-group">
                         <label asp-for="HouseNumAndStreet">Street/Lot Number</label>
-                        <input asp-for="HouseNumAndStreet" type="text" class="form-control">
+                        <input asp-for="HouseNumAndStreet" type="text" class="form-control" readonly>
                     </div>
                     <div class="form-row">
                         <div class="form-group col-md-4">
                             <label asp-for="City">City</label>
-                            <input asp-for="City" type="text" class="form-control">
+                            <input asp-for="City" type="text" class="form-control" readonly>
                         </div>
                         <div class="form-group col-md-4">
                             <label asp-for="Country">Country</label>
-                            <input asp-for="Country" type="text" class="form-control">
+                            <input asp-for="Country" type="text" class="form-control" readonly>
                         </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                    </div>                    
                 </form>
             </div>
 

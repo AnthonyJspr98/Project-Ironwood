@@ -35,6 +35,18 @@
     <Compile Remove="Migrations\20201011063611_seed.Designer.cs" />
     <Compile Remove="Migrations\20201027114624_InitialMig.cs" />
     <Compile Remove="Migrations\20201027114624_InitialMig.Designer.cs" />
+    <Compile Remove="Migrations\20201104132527_addedVoucher.cs" />
+    <Compile Remove="Migrations\20201104132527_addedVoucher.Designer.cs" />
+    <Compile Remove="Migrations\20201105123255_Something.cs" />
+    <Compile Remove="Migrations\20201105123255_Something.Designer.cs" />
+    <Compile Remove="Migrations\20201105123417_UpdatedVoucherConfiguration.cs" />
+    <Compile Remove="Migrations\20201105123417_UpdatedVoucherConfiguration.Designer.cs" />
+    <Compile Remove="Migrations\20201105124952_ModifiedVoucherConfig.cs" />
+    <Compile Remove="Migrations\20201105124952_ModifiedVoucherConfig.Designer.cs" />
+    <Compile Remove="Migrations\20201105125341_testVoucherMIgration.cs" />
+    <Compile Remove="Migrations\20201105125341_testVoucherMIgration.Designer.cs" />
+    <Compile Remove="Migrations\20201105125608_AddedVoucher.cs" />
+    <Compile Remove="Migrations\20201105125608_AddedVoucher.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

@@ -10,5 +10,7 @@ namespace Ironwood.Domain.Entities
 
         public User User { get; set; }
         public ICollection<WalletTransaction> WalletTransactions { get; private set; } = new HashSet<WalletTransaction>();
+        public ICollection<VoucherTransaction> VoucherTransactions { get; private set; } = new HashSet<VoucherTransaction>();
+
     }
 }
