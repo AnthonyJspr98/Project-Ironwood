@@ -48,12 +48,12 @@ namespace Ironwood.Infrastructure.Persistence.Configurations
 
             builder.HasData(new
             {
-                ID = 1,
+                ID = 1,               
                 UID = Guid.NewGuid(),
                 FirstName = "Admin",
                 LastName = "App",
                 EmailAddress = "admin@auxiliaglobal.com",
-                AccessRole = AccessRole.Admin
+                AccessRole = AccessRole.Admin                
             });
 
 

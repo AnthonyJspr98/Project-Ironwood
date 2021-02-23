@@ -339,3 +339,19 @@ ASALocalRun/
 # BeatPulse healthcheck temp database
 healthchecksdb
 /Ironwood.Infrustructure/Migrations
+Ironwood.UI/wwwroot/lib/bootstrap/css/bootstrap.min.css
+Ironwood.UI/wwwroot/lib/bootstrap/js/bootstrap.bundle.js
+Ironwood.UI/wwwroot/lib/bootstrap/js/bootstrap.bundle.min.js
+Ironwood.UI/wwwroot/lib/jquery/core.js
+Ironwood.UI/wwwroot/lib/jquery/jquery.js
+Ironwood.UI/wwwroot/lib/jquery/jquery.min.js
+Ironwood.UI/wwwroot/lib/jquery/jquery.slim.js
+Ironwood.UI/wwwroot/lib/jquery/jquery.slim.min.js
+Ironwood.UI/wwwroot/lib/jquery-ajax-unobtrusive/jquery.unobtrusive-ajax.js
+Ironwood.UI/wwwroot/lib/jquery-validate/additional-methods.js
+Ironwood.UI/wwwroot/lib/jquery-validate/additional-methods.min.js
+Ironwood.UI/wwwroot/lib/jquery-validate/jquery.validate.js
+Ironwood.UI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js
+Ironwood.UI/wwwroot/lib/jquery-validate/jquery.validate.min.js
+.vscode/launch.json
+.vscode/tasks.json

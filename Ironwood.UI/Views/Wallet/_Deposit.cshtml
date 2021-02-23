@@ -1,0 +1,33 @@
+@using Ironwood.Application.Vouchers.Commands
+@model RedeemVoucherCommand
+@{
+    ViewData["Title"] = "_Deposit";
+}
+
+@section Scripts {
+
+    <script type="text/javascript">
+        function OnSuccess(e) {                    
+        }
+    </script>
+
+    <partial name="_ValidationScriptsPartial" />
+
+}
+
+<form asp-action="RedeemVoucher" asp-controller="Wallet" data-ajax-success="OnSuccess">
+    <div class="text-center">
+        <h5 class="card-title">Voucher Code </h5>
+        <p class="card-text">Deposit using a voucher code, purchase voucher code from any of our authorized resellers and distributors </p>
+        
+    </div>
+    <div class="form-group">
+        <label asp-for="VoucherCode">Voucher Code*</label>       
+    </div>
+    <div class="form-group">
+        <input asp-for="VoucherCode"  required="">
+    </div>
+    <div class="form-group text-center">
+        <button class="btn btn-outline-primary mt-3" type="submit">SUBMIT</button>
+    </div>
+</form>
