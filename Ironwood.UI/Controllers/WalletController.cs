@@ -22,7 +22,7 @@ namespace Ironwood.UI.Controllers
                 UID = CurrentUser.UID,
                 UserEmail = CurrentUser.UserDetails.EmailAddress,
                 Balance = _walletBalance,
-                
+                WalletHistory = _walletHis
 
             };
            

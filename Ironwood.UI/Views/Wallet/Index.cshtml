@@ -58,8 +58,28 @@
                     <div class="tab-pane fade" id="pills-updateprof" role="tabpanel" aria-labelledby="pills-updateprof-tab">
                         <h3>No Data Available!</h3>
                     </div>
-                    <div class="tab-pane fade" id="pills-verification" role="tabpanel" aria-labelledby="pills-verification-tab">
-                        Coming!!!
+                    <div class="tab-pane fade" id="pills-verification" role="tabpanel" aria-labelledby="pills-verification-tab">                         
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Transaction Type</th>
+                                    <th scope="col">Amount</th>
+                                    <th scope="col">Remarks</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var item in Model.WalletHistory)
+                            {
+                                <tr>
+                                    <th>@item.TransactedOn.ToShortDateString()</th>
+                                    <td>@item.TransactionType</td>
+                                    <td>@item.Amount</td>
+                                    <td>@item.Remarks</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
                     </div>
                 </div>
                 </div>
