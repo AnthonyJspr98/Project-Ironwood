@@ -355,3 +355,5 @@ Ironwood.UI/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusiv
 Ironwood.UI/wwwroot/lib/jquery-validate/jquery.validate.min.js
 .vscode/launch.json
 .vscode/tasks.json
+Ironwood.Infrastructure/Migrations/20210228083245_One.cs
+Ironwood.Infrastructure/Migrations/20210228083245_One.Designer.cs

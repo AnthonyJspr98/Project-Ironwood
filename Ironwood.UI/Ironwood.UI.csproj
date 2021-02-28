@@ -24,7 +24,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Ironwood.Application\Ironwood.Application.csproj" />
     <ProjectReference Include="..\Ironwood.Domain\Ironwood.Domain.csproj" />
-    <ProjectReference Include="..\Ironwood.Infrustructure\Ironwood.Infrastructure.csproj" />
+    <ProjectReference Include="..\Ironwood.Infrastructure\Ironwood.Infrastructure.csproj" />
     <ProjectReference Include="..\Ironwood\Ironwood.csproj" />
   </ItemGroup>
 

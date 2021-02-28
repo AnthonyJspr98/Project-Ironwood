@@ -26,7 +26,9 @@ namespace Ironwood.Application.Vouchers.Commands
             }
             public async Task<Voucher> Handle(RedeemVoucherCommand request, CancellationToken cancellationToken)
             {
-                var _voucher =  dbContext.Vouchers.SingleOrDefault(a => a.Code == request.VoucherCode);
+                var _voucher =  dbContext.Vouchers
+                .Include(a => a.VoucherTransactions)
+                .SingleOrDefault(a => a.Code == request.VoucherCode);
 
                 if (_voucher != null)
                 {
@@ -40,18 +42,23 @@ namespace Ironwood.Application.Vouchers.Commands
                     .Include(a => a.Wallet)
                     .SingleOrDefaultAsync(a => a.UID == currentUser.UID);
                                        
-                    var _transaction = new WalletTransaction
+                    var _walletTransaction = new WalletTransaction
                     {
                         UID = Guid.NewGuid(),
                         TransactedOn = DateTime.Now,
                         Amount = +_voucher.Value,
                         TransactionType = TransactionType.CashIn,
-                        Remarks = "Voucher Cash In"
-                        
+                        Remarks = "Voucher Cash In"                       
+                    };
+                    var _voucherTransaction = new VoucherTransaction
+                    {
+                        RedeemedOn = DateTime.Now,
+                        Wallet = _user.Wallet,
+                        Voucher = _voucher
                     };
 
-                   _user.Wallet.WalletTransactions.Add(_transaction);
-
+                    _user.Wallet.WalletTransactions.Add(_walletTransaction);
+                    _voucher.VoucherTransactions.Add(_voucherTransaction);
                     _voucher.IsRedeemed = true;
                 
                     return _voucher;

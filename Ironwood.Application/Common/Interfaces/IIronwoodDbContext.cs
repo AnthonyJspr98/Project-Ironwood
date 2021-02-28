@@ -17,5 +17,10 @@ namespace Ironwood.Application.Common.Interfaces
         public DbSet<LoginHistory> LoginHistories { get; set; }
         public DbSet<Voucher> Vouchers { get; set; }
         public DbSet<VoucherTransaction> VoucherTransactions { get; set; }
+        public DbSet<Bet> Bets {get; set;}
+        public DbSet<Match> Matches { get; set; }
+        public DbSet<MatchTeamDetail> MatchTeamDetails { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Tournament> Tournaments { get; set; }
     }
 }

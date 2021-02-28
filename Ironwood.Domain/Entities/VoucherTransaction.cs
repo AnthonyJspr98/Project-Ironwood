@@ -8,5 +8,6 @@ namespace Ironwood.Domain.Entities
     {
         public Wallet Wallet { get; set; }
         public Voucher Voucher { get; set; }
+        public DateTime RedeemedOn { get; set; }
     }
 }

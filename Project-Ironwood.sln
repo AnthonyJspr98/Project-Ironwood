@@ -15,7 +15,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ironwood", "Ironwood\Ironwo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ironwood.Application", "Ironwood.Application\Ironwood.Application.csproj", "{3846877A-9B09-4DF0-82EE-628BE668189E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ironwood.Infrastructure", "Ironwood.Infrustructure\Ironwood.Infrastructure.csproj", "{2EE644F8-4F8D-4E5B-A126-218C47DCA25B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ironwood.Infrastructure", "Ironwood.Infrastructure\Ironwood.Infrastructure.csproj", "{2EE644F8-4F8D-4E5B-A126-218C47DCA25B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ironwood.Domain", "Ironwood.Domain\Ironwood.Domain.csproj", "{C15A1A0A-AD79-491D-943B-E609C9FEC817}"
 EndProject

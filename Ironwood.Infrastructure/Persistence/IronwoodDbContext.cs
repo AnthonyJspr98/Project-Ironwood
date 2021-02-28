@@ -19,8 +19,13 @@ namespace Ironwood.Infrastructure.Persistence
 		public DbSet<LoginHistory> LoginHistories { get; set; }
 		public DbSet<Voucher> Vouchers { get; set; }
 		public DbSet<VoucherTransaction> VoucherTransactions { get; set; }
+        public DbSet<Bet> Bets { get ; set; }
+        public DbSet<Match> Matches { get; set ; }
+        public DbSet<MatchTeamDetail> MatchTeamDetails { get; set; }
+        public DbSet<Team> Teams { get; set; }
+        public DbSet<Tournament> Tournaments { get; set ; }
 
-		public IronwoodDbContext(DbContextOptions<IronwoodDbContext> dbContext) : base (dbContext)
+        public IronwoodDbContext(DbContextOptions<IronwoodDbContext> dbContext) : base (dbContext)
 		{ 		
 		}
 
