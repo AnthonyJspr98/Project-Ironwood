@@ -22,5 +22,6 @@ namespace Ironwood.Application.Common.Interfaces
         public DbSet<MatchTeamDetail> MatchTeamDetails { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Tournament> Tournaments { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

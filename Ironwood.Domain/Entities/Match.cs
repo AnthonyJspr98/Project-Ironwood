@@ -9,7 +9,7 @@ namespace Ironwood.Domain.Entities
         public Guid UID { get; set; }
 
         public MatchStatus Status { get; set; }
-        public MatchCategory MatchCategory { get; set; }
+        public Category Category { get; set; }
         public DateTime MatchDateandTime { get; set; }
         public Tournament Tournament { get; set; }    
            

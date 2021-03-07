@@ -1,0 +1,15 @@
+@using Ironwood.Application.Vouchers.Commands
+@model CreateVoucherCodeCommand
+
+<form asp-action="GenerateVoucher" asp-controller="Admin" data-ajax-success="OnSuccess">
+    <label asp-for="Value">Generate Voucher Code</label>
+    <select asp-for="Value" class="form-control" required>
+        <option value="200">250</option>
+        <option value="500">500</option>
+        <option value="1000">1000</option>
+        <option value="5000">5000</option>
+    </select>
+    <div class="form-group text-center">
+        <button class="btn btn-outline-primary mt-3 form-control" type="submit">Generate</button>
+    </div>
+</form>    

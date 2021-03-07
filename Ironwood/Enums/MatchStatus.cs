@@ -5,7 +5,7 @@ namespace Ironwood.Enums
         None = 0,
         Incoming = 1,
         OnGoing = 2,
-        Closed = 3,
+        Settled = 3,
         Others = 4
     }
 }

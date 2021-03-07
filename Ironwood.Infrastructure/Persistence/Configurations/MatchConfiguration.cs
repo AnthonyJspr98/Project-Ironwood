@@ -27,7 +27,7 @@ namespace Ironwood.Infrastructure.Persistence.Configurations
                 .WithMany(a => a.Matches)
                 .HasForeignKey("TournamentID");
             
-            builder.HasOne(a => a.MatchCategory)
+            builder.HasOne(a => a.Category)
                 .WithMany(a => a.Matches)
                 .HasForeignKey("MatchCategoryID");
             

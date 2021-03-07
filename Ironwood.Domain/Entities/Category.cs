@@ -1,9 +1,10 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Ironwood.Domain.Entities
 {
-    public class MatchCategory
+    public class Category
     {
         public Guid UID { get; set; }
         
@@ -11,5 +12,6 @@ namespace Ironwood.Domain.Entities
         public string Details { get; set; }
 
         public ICollection<Match> Matches  { get; private set; } = new HashSet<Match>();
+       
     }
 }

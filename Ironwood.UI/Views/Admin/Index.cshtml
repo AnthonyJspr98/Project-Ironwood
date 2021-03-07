@@ -1,5 +1,4 @@
-﻿@using Ironwood.Application.Vouchers.Commands
-@model CreateVoucherCodeCommand
+﻿@model AdminVM
 @{
     ViewData["Title"] = "Index";
 }
@@ -8,38 +7,74 @@
 @section Scripts {
     <script type="text/javascript">
         function OnSuccess(e) {
-            console.log(e);
-            //$('.voucher-render').(e);
+            alert(e);
+            var myString = JSON.stringify(e);
+            $("voucher-render").html(myString);  
         }
     </script>
 
     <partial name="_ValidationScriptsPartial" />
 }
 
-<h1>Admin Dashboard</h1>
-
-<div class="main-content">
-    <div class="container">
-        <div class="row">
-            <div class="col-5">
-                <div class="form-group register-form-group">
-                    <form asp-action="GenerateVoucher" asp-controller="Admin" data-ajax-success="OnSuccess">
-                        <label asp-for="Value">Generate Voucher Code</label>
-                        <select asp-for="Value" class="form-control" required>
-                            <option value="200">200</option>
-                            <option value="500">500</option>
-                            <option value="1000">1000</option>
-                        </select>
-                        <div class="form-group text-center">
-                            <button class="btn btn-outline-primary mt-3 form-control" type="submit">Generate</button>
+    <div class="main-content">
+        <div class="container ">  
+            <div class="row ">
+                <div class="col-3">
+                    <div class="card ">
+                    <img src="~/img/profile.png" class="card-img-top" alt="...">
+                    <div class="cardbody">
+                        <div class="form-group px-3">
+                            <label asp-for="AdminEmail">Email</label>
+                            <input asp-for="AdminEmail" class="form-control" readonly>
                         </div>
-                    </form>                   
+                        <div class="form-group px-3">
+                            <label asp-for="UID">Admin UID</label>
+                            <input asp-for="UID" class="form-control" readonly>
+                        </div>
+                        <div class="form-group px-3">
+                            <label asp-for="AccessRole">Access Role</label>
+                            <input asp-for="AccessRole" class="form-control" readonly>
+                        </div>
+                    </div>                   
+                    </div>
                 </div>
-            </div>
-            <div class="col-5">
-                <div class="form-group" id="voucher-render">
+                <div class="col-9 card text-center">
+                    <ul class="nav nav-pills nav-fill mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="pills-changepass-tab" data-toggle="pill" href="#pills-changepass" role="tab" aria-controls="pills-changepass" aria-selected="true">Voucher</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-updateprof-tab" data-toggle="pill" href="#pills-updateprof" role="tab" aria-controls="pills-updateprof" aria-selected="false">Matches</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-verification-tab" data-toggle="pill" href="#pills-verification" role="tab" aria-controls="pills-verification" aria-selected="false">Tournaments</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-team-tab" data-toggle="pill" href="#pills-team" role="tab" aria-controls="pills-team" aria-selected="false">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="pills-games-tab" data-toggle="pill" href="#pills-games" role="tab" aria-controls="pills-games" aria-selected="false">Games</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-changepass" role="tabpanel" aria-labelledby="pills-changepass-tab">
+                        @Html.Partial("~/Views/Admin/_GenerateVoucher.cshtml",Model.CreateVoucherCodeCommand)
+                    </div>
+                    <div class="tab-pane fade" id="pills-updateprof" role="tabpanel" aria-labelledby="pills-updateprof-tab">
+                        <h3>No Data Available!</h3>
+                    </div>
+                    <div class="tab-pane fade" id="pills-verification" role="tabpanel" aria-labelledby="pills-verification-tab">                         
+                        @Html.Partial("~/Views/Admin/_CreateTournament.cshtml",Model.RegisterTournamentCommand)
+                    </div>
+                    <div class="tab-pane fade" id="pills-team" role="tabpanel" aria-labelledby="pills-team-tab">                         
+                      @Html.Partial("~/Views/Admin/_RegisterTeam.cshtml",Model.RegisterTeamCommand)
+                    </div>
+                     <div class="tab-pane fade" id="pills-games" role="tabpanel" aria-labelledby="pills-games-tab">                         
+                       <h3>No  Available!</h3>
+                    </div>
                 </div>
-            </div>
+                </div>
+            </div>                  
         </div>
     </div>
-</div>
+

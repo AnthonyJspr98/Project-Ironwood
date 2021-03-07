@@ -4,14 +4,16 @@ using Ironwood.Infrastructure.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Ironwood.Infrastructure.Migrations
 {
     [DbContext(typeof(IronwoodDbContext))]
-    partial class IronwoodDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210305051448_One")]
+    partial class One
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

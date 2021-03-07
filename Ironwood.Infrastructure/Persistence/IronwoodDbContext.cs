@@ -24,6 +24,7 @@ namespace Ironwood.Infrastructure.Persistence
         public DbSet<MatchTeamDetail> MatchTeamDetails { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Tournament> Tournaments { get; set ; }
+        public DbSet<Category> Categories { get; set; }
 
         public IronwoodDbContext(DbContextOptions<IronwoodDbContext> dbContext) : base (dbContext)
 		{ 		

@@ -23,6 +23,7 @@ namespace Ironwood.Infrastructure.Persistence.Configurations
             
             builder.Property(a => a.Country)
             .HasMaxLength(20);
+          
         }
     }
 }

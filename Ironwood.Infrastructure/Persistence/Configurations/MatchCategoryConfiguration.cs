@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Ironwood.Infrastructure.Persistence.Configurations
 {
-    public class MatchCategoryConfiguration : IEntityTypeConfiguration<MatchCategory>
+    public class MatchCategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<MatchCategory> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
             //Added ID prop(INT)
             builder.Property<int>("ID");
