@@ -8,21 +8,6 @@ namespace Ironwood.Infrastructure.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Categories",
-                columns: table => new
-                {
-                    ID = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    UID = table.Column<Guid>(nullable: false),
-                    Name = table.Column<string>(maxLength: 20, nullable: true),
-                    Details = table.Column<string>(nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Categories", x => x.ID);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Teams",
                 columns: table => new
                 {
@@ -101,19 +86,13 @@ namespace Ironwood.Infrastructure.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     UID = table.Column<Guid>(nullable: false),
                     Status = table.Column<byte>(nullable: false),
-                    MatchCategoryID = table.Column<int>(nullable: false),
                     MatchDateandTime = table.Column<DateTime>(nullable: false),
+                    MatchCategory = table.Column<byte>(nullable: false),
                     TournamentID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Matches", x => x.ID);
-                    table.ForeignKey(
-                        name: "FK_Matches_Categories_MatchCategoryID",
-                        column: x => x.MatchCategoryID,
-                        principalTable: "Categories",
-                        principalColumn: "ID",
-                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Matches_Tournaments_TournamentID",
                         column: x => x.TournamentID,
@@ -303,7 +282,7 @@ namespace Ironwood.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "ID", "AccessRole", "Address", "BirthDate", "City", "Country", "EmailAddress", "FirstName", "Gender", "LastName", "MiddleName", "MobileNumber", "UID" },
-                values: new object[] { 1, (byte)1, null, null, null, null, "admin@auxiliaglobal.com", "Admin", null, "App", null, null, new Guid("96ddd8aa-ef3d-41ba-9d43-4cee4bc6c52b") });
+                values: new object[] { 1, (byte)1, null, null, null, null, "admin@auxiliaglobal.com", "Admin", null, "App", null, null, new Guid("2d4b8b14-e42d-44af-b469-add04b6b2c4b") });
 
             migrationBuilder.InsertData(
                 table: "UserLogins",
@@ -332,20 +311,9 @@ namespace Ironwood.Infrastructure.Migrations
                 column: "WalletID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Categories_UID",
-                table: "Categories",
-                column: "UID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_LoginHistories_UserLoginID",
                 table: "LoginHistories",
                 column: "UserLoginID");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Matches_MatchCategoryID",
-                table: "Matches",
-                column: "MatchCategoryID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Matches_TournamentID",
@@ -470,9 +438,6 @@ namespace Ironwood.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "Wallets");
-
-            migrationBuilder.DropTable(
-                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Tournaments");

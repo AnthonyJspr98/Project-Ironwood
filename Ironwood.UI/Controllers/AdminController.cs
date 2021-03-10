@@ -5,6 +5,7 @@ using Ironwood.Application.Teams.Queries;
 using Ironwood.Application.Tournaments.Commands;
 using Ironwood.Application.Tournaments.Queries;
 using Ironwood.Application.Vouchers.Commands;
+using Ironwood.Enums;
 using Ironwood.UI.Controllers.Base;
 using Ironwood.UI.Models;
 using Microsoft.AspNetCore.Authorization;
@@ -27,8 +28,7 @@ namespace Ironwood.UI.Controllers
             //Prepare Dropdownlists
             var _teams = await Mediator.Send(new GetAllTeamsQuery{});
             var _tournaments = await Mediator.Send(new GetAllTournamentsQuery{});
-            var _categories = await Mediator.Send(new GetAllMatchCategoriesQuery {});
-
+            
             List<SelectListItem> TeamList = new List<SelectListItem>();
 
             foreach (var item in _teams)
@@ -45,19 +45,22 @@ namespace Ironwood.UI.Controllers
                 TournamentList.Add(selectListItem);
             }  
 
-            List<SelectListItem> CategoryList = new List<SelectListItem>();
+          
 
-            foreach (var item in _categories)
+            List<SelectListItem> CategoryList = new List<SelectListItem>
             {
-                var selectListItem = new SelectListItem { Text = item.Name.ToString(), Value = item.UID.ToString()};
-                CategoryList.Add(selectListItem);
-            }  
+                new SelectListItem { Text = MatchCategory.Dota2.ToString(), Value = MatchCategory.Dota2.ToString()},
+                new SelectListItem { Text = MatchCategory.LoL.ToString(), Value = MatchCategory.LoL.ToString()},
+                new SelectListItem { Text = MatchCategory.Basketball.ToString(), Value = MatchCategory.Basketball.ToString()},
+                new SelectListItem { Text = MatchCategory.Football.ToString(), Value = MatchCategory.Football.ToString()}
+            };
 
 
             ViewBag.TeamOne = TeamList;
             ViewBag.TeamTwo = TeamList;
             ViewBag.Tournaments = TournamentList;
             ViewBag.Categories = CategoryList;
+           
 
             var _adminEmail = CurrentUser.UserDetails.EmailAddress;
             var _UID = CurrentUser.UID;
@@ -71,8 +74,7 @@ namespace Ironwood.UI.Controllers
                 UID = _UID,
                 AccessRole = _role,
                 Teams = _teams,
-                Tournaments = _tournaments,
-                Categories = _categories
+                Tournaments = _tournaments,              
                 
             };
             return View(_adminDetails);
@@ -111,17 +113,7 @@ namespace Ironwood.UI.Controllers
             return Json(true);
         }
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> CreateMatchCategory(CreateMatchCategoryCommand cmd)
-        {
-            await Mediator.Send(cmd);
-
-            await WriteOnlyDbContext.SaveChangesAsync();
-            
-            return Json(true);
-        }
-        
+              
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateMatch(CreateMatchCommand cmd)

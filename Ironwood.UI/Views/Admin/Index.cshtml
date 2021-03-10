@@ -50,10 +50,7 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="pills-team-tab" data-toggle="pill" href="#pills-team" role="tab" aria-controls="pills-team" aria-selected="false">Teams</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-games-tab" data-toggle="pill" href="#pills-games" role="tab" aria-controls="pills-games" aria-selected="false">Category</a>
-                    </li>
+                    </li>                
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
                     <div class="tab-pane fade show active" id="pills-changepass" role="tabpanel" aria-labelledby="pills-changepass-tab">
@@ -67,10 +64,7 @@
                     </div>
                     <div class="tab-pane fade" id="pills-team" role="tabpanel" aria-labelledby="pills-team-tab">                         
                         @Html.Partial("~/Views/Admin/_RegisterTeam.cshtml",Model.RegisterTeamCommand)
-                    </div>
-                     <div class="tab-pane fade" id="pills-games" role="tabpanel" aria-labelledby="pills-games-tab">                         
-                        @Html.Partial("~/Views/Admin/_CreateMatchCategory.cshtml",Model.CreateMatchCategoryCommand)
-                    </div>
+                    </div>          
                 </div>
                 </div>
             </div>                  

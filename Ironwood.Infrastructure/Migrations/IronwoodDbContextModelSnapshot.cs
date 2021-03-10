@@ -58,31 +58,6 @@ namespace Ironwood.Infrastructure.Migrations
                     b.ToTable("Bets");
                 });
 
-            modelBuilder.Entity("Ironwood.Domain.Entities.Category", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Details")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(20)")
-                        .HasMaxLength(20);
-
-                    b.Property<Guid>("UID")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("UID")
-                        .IsUnique();
-
-                    b.ToTable("Categories");
-                });
-
             modelBuilder.Entity("Ironwood.Domain.Entities.LoginHistory", b =>
                 {
                     b.Property<int>("ID")
@@ -128,8 +103,8 @@ namespace Ironwood.Infrastructure.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("MatchCategoryID")
-                        .HasColumnType("int");
+                    b.Property<byte>("MatchCategory")
+                        .HasColumnType("tinyint");
 
                     b.Property<DateTime>("MatchDateandTime")
                         .HasColumnType("datetime2");
@@ -144,8 +119,6 @@ namespace Ironwood.Infrastructure.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("MatchCategoryID");
 
                     b.HasIndex("TournamentID");
 
@@ -301,7 +274,7 @@ namespace Ironwood.Infrastructure.Migrations
                             EmailAddress = "admin@auxiliaglobal.com",
                             FirstName = "Admin",
                             LastName = "App",
-                            UID = new Guid("96ddd8aa-ef3d-41ba-9d43-4cee4bc6c52b")
+                            UID = new Guid("2d4b8b14-e42d-44af-b469-add04b6b2c4b")
                         });
                 });
 
@@ -490,12 +463,6 @@ namespace Ironwood.Infrastructure.Migrations
 
             modelBuilder.Entity("Ironwood.Domain.Entities.Match", b =>
                 {
-                    b.HasOne("Ironwood.Domain.Entities.Category", "Category")
-                        .WithMany("Matches")
-                        .HasForeignKey("MatchCategoryID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Ironwood.Domain.Entities.Tournament", "Tournament")
                         .WithMany("Matches")
                         .HasForeignKey("TournamentID")

@@ -14,7 +14,7 @@ namespace Ironwood.Application.Matches.Commands
         //
         public Guid TeamOneUID { get; set; }
         public Guid TeamTwoUID { get; set; }
-        public Guid MatchCategory { get; set; }
+        public MatchCategory MatchCategory { get; set; }
         public Guid Tournament { get; set; }
         public DateTime MatchDateAndTime { get; set; }
         //
@@ -34,7 +34,7 @@ namespace Ironwood.Application.Matches.Commands
             {
                 var _teamOne = await dbContext.Teams.SingleOrDefaultAsync(a => a.UID == request.TeamOneUID);
                 var _teamTwo = await dbContext.Teams.SingleOrDefaultAsync(a => a.UID == request.TeamTwoUID);
-                var _matchCategory = await dbContext.Categories.SingleOrDefaultAsync(a => a.UID == request.MatchCategory);
+               
                 var _tournament = await dbContext.Tournaments.SingleOrDefaultAsync(a => a.UID == request.Tournament);
               
                 
@@ -42,9 +42,10 @@ namespace Ironwood.Application.Matches.Commands
                 {
                     UID = Guid.NewGuid(),
                     Status = MatchStatus.Incoming,
-                    Category = _matchCategory,
                     Tournament = _tournament,
-                    MatchDateandTime = request.MatchDateAndTime,                  
+                    MatchDateandTime = request.MatchDateAndTime,    
+                    MatchCategory = request.MatchCategory  
+
                 };
 
                 dbContext.Matches.Add(_match);

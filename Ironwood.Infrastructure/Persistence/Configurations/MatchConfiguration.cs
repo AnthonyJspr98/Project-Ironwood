@@ -19,17 +19,14 @@ namespace Ironwood.Infrastructure.Persistence.Configurations
               .IsUnique();
 
             //Add Prop for the ForeignKey
-            builder.Property<int>("TournamentID");
-            builder.Property<int>("MatchCategoryID");
+            builder.Property<int>("TournamentID");         
 
             //Relationship
             builder.HasOne(a => a.Tournament)
                 .WithMany(a => a.Matches)
                 .HasForeignKey("TournamentID");
             
-            builder.HasOne(a => a.Category)
-                .WithMany(a => a.Matches)
-                .HasForeignKey("MatchCategoryID");
+           
             
         }
     }

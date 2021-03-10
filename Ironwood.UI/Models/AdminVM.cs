@@ -15,13 +15,11 @@ namespace Ironwood.UI.Models
         public AccessRole AccessRole { get; set; }
         public IEnumerable<Team> Teams { get; set; }
         public IEnumerable<Tournament> Tournaments {get; set;}
-        public IEnumerable<Category> Categories { get; set; }
-        
+             
         public CreateMatchCommand CreateMatchCommand { get; set; }
         public CreateVoucherCodeCommand CreateVoucherCodeCommand { get; set; }
         public RegisterTeamCommand RegisterTeamCommand { get; set; }
         public RegisterTournamentCommand RegisterTournamentCommand { get; set; }
-        public CreateMatchCategoryCommand CreateMatchCategoryCommand { get; set; }
-        
+               
     }
 }
