@@ -28,6 +28,7 @@ namespace Ironwood.Infrastructure.Persistence
 
         public IronwoodDbContext(DbContextOptions<IronwoodDbContext> dbContext) : base (dbContext)
 		{ 		
+			
 		}
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)

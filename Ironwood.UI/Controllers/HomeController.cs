@@ -9,6 +9,7 @@ using Ironwood.UI.Models;
 using Ironwood.UI.Controllers.Base;
 using Microsoft.AspNetCore.Authorization;
 using Ironwood.Enums;
+using Ironwood.Application.Matches.Queries;
 
 namespace Ironwood.UI.Controllers
 {
@@ -26,7 +27,14 @@ namespace Ironwood.UI.Controllers
                 }
                 else
                 {
-                    return View();
+                    var _incomingMatches = await Mediator.Send(new GetAllIncomingMatchesQuery{});
+                               
+                    var _viewMod = new HomePageVM
+                    {
+                        IncomingMatch = _incomingMatches
+                        
+                    };
+                    return View(_viewMod);
                 }
             }
             return View();

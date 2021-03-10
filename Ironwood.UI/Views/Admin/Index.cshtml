@@ -8,8 +8,7 @@
     <script type="text/javascript">
         function OnSuccess(e) {
             alert(e);
-            var myString = JSON.stringify(e);
-            $("voucher-render").html(myString);  
+            window.location = "/";
         }
     </script>
 
@@ -53,7 +52,7 @@
                         <a class="nav-link" id="pills-team-tab" data-toggle="pill" href="#pills-team" role="tab" aria-controls="pills-team" aria-selected="false">Teams</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-games-tab" data-toggle="pill" href="#pills-games" role="tab" aria-controls="pills-games" aria-selected="false">Games</a>
+                        <a class="nav-link" id="pills-games-tab" data-toggle="pill" href="#pills-games" role="tab" aria-controls="pills-games" aria-selected="false">Category</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="pills-tabContent">
@@ -61,16 +60,16 @@
                         @Html.Partial("~/Views/Admin/_GenerateVoucher.cshtml",Model.CreateVoucherCodeCommand)
                     </div>
                     <div class="tab-pane fade" id="pills-updateprof" role="tabpanel" aria-labelledby="pills-updateprof-tab">
-                        <h3>No Data Available!</h3>
+                        @Html.Partial("~/Views/Admin/_CreateMatch.cshtml",Model.CreateMatchCommand)
                     </div>
                     <div class="tab-pane fade" id="pills-verification" role="tabpanel" aria-labelledby="pills-verification-tab">                         
                         @Html.Partial("~/Views/Admin/_CreateTournament.cshtml",Model.RegisterTournamentCommand)
                     </div>
                     <div class="tab-pane fade" id="pills-team" role="tabpanel" aria-labelledby="pills-team-tab">                         
-                      @Html.Partial("~/Views/Admin/_RegisterTeam.cshtml",Model.RegisterTeamCommand)
+                        @Html.Partial("~/Views/Admin/_RegisterTeam.cshtml",Model.RegisterTeamCommand)
                     </div>
                      <div class="tab-pane fade" id="pills-games" role="tabpanel" aria-labelledby="pills-games-tab">                         
-                       <h3>No  Available!</h3>
+                        @Html.Partial("~/Views/Admin/_CreateMatchCategory.cshtml",Model.CreateMatchCategoryCommand)
                     </div>
                 </div>
                 </div>

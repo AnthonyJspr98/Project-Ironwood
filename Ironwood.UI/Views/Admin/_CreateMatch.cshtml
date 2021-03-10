@@ -1,0 +1,31 @@
+@using Ironwood.Application.Matches.Commands
+@model CreateMatchCommand
+
+<form asp-action="CreateMatch" asp-controller="Admin" data-ajax-success="OnSuccess">
+    <div class="text-center">
+        <h4>Create Match</h4>
+    </div>    
+    <div class="form-group">
+        <label asp-for="TeamOneUID">Team One</label>
+         @Html.DropDownListFor(model => model.TeamOneUID, ViewBag.TeamOne as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>   
+    <div class="form-group">
+        <label asp-for="TeamOneUID">Team Two</label>
+         @Html.DropDownListFor(model => model.TeamTwoUID, ViewBag.TeamTwo as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>  
+    <div class="form-group">
+        <label asp-for="TeamOneUID">Tournament</label>
+         @Html.DropDownListFor(model => model.Tournament, ViewBag.Tournaments as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>  
+    <div class="form-group">
+        <label asp-for="TeamOneUID">Category</label>
+         @Html.DropDownListFor(model => model.MatchCategory, ViewBag.Categories as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div> 
+    <div class="form-group col-md-4">
+            <label asp-for="MatchDateAndTime">Match Date and Time</label>
+            <input asp-for="MatchDateAndTime" class="form-control">
+        </div>
+    <div class="form-group text-center">
+        <button class="btn btn-outline-primary mt-3 form-control" type="submit">SUBMIT</button>
+    </div>
+</form>
