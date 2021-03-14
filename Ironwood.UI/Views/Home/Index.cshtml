@@ -32,10 +32,10 @@
                     <div class="container bg-secondary text-light">
                         <h5>Incoming Matches</h5>
                     </div>
-                    <a class="nav-item nav-link active" id="nav-football-tab" data-toggle="tab" href="#nav-football" role="tab" aria-controls="nav-football" aria-selected="true">Football</a>
+                    <a class="nav-item nav-link active" id="nav-dota-tab" data-toggle="tab" href="#nav-dota" role="tab" aria-controls="nav-dota" aria-selected="false">Dota 2</a>
+                    <a class="nav-item nav-link " id="nav-football-tab" data-toggle="tab" href="#nav-football" role="tab" aria-controls="nav-football" aria-selected="true">Football</a>
                     <a class="nav-item nav-link" id="nav-basketball-tab" data-toggle="tab" href="#nav-basketball" role="tab" aria-controls="nav-basketball" aria-selected="false">Basketball</a>
                     <a class="nav-item nav-link" id="nav-volleyball-tab" data-toggle="tab" href="#nav-volleyball" role="tab" aria-controls="nav-volleyball" aria-selected="false">Volleyball</a>
-                    <a class="nav-item nav-link" id="nav-dota-tab" data-toggle="tab" href="#nav-dota" role="tab" aria-controls="nav-dota" aria-selected="false">Dota2</a>
                     <a class="nav-item nav-link" id="nav-csgo-tab" data-toggle="tab" href="#nav-csgo" role="tab" aria-controls="nav-csgo" aria-selected="false">CS:GO</a>
                 </div>
             </nav>
@@ -43,59 +43,39 @@
 
 
         <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-football" role="tabpanel" aria-labelledby="nav-football-tab">
+            <div class="tab-pane fade show active" id="nav-dota" role="tabpanel" aria-labelledby="nav-dota-tab">
+              @if (Model.IncomingDotaMatches != null)
+              {
+                   @foreach (var item in Model.IncomingDotaMatches)
+               {
                 <div class="container py-1" style="background-color: black">
                     <div class="row justify-content-end py-1 bg-dark border border-dark rounded ">
                         <div class="col-3 text-light">
-                            The Summit 14
+                            @item.Tournament.Name
                         </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-left">
-                            TnC
-                        </div>
-                        <div class="col-1 text-light bg-secondary border border-dark ">
-                            x
-                        </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-right">
-                            Fnatic
-                        </div>
-                    </div>
-                </div>
-                <div class="container py-1" style="background-color: black">
-                    <div class="row justify-content-end py-1 bg-dark border border-dark rounded">
+                        @foreach (var items in item.MatchTeamDetails)
+                        {
+                            <div class="col-3 text-light bg-secondary border border-dark rounded-left">
+                                @items.Team.Name
+                            </div>
+                        }
                         <div class="col-3 text-light">
-                            The Summit 14
-                        </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-left">
-                            Among Us
-                        </div>
-                        <div class="col-1 text-light bg-secondary border border-dark ">
-                            x
-                        </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-right">
-                            Neon Esports
+                            @item.MatchDateandTime.ToLongDateString()
                         </div>
                     </div>
-                </div>
-                <div class="container py-1" style="background-color: black">
-                    <div class="row justify-content-end py-1 bg-dark border border-dark rounded ">
-                        <div class="col-3 text-light">
-                            The Summit 14
-                        </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-left">
-                            Boom Esports
-                        </div>
-                        <div class="col-1 text-light bg-secondary border border-dark ">
-                            x
-                        </div>
-                        <div class="col-4 text-light bg-secondary border border-dark rounded-right">
-                            Team Star
-                        </div>
-                    </div>
-                </div>
+                </div>       
+               }
+              }
+              else
+              {
+                  <div>No Data</div>
+              }
+
+              
             </div>
+            <div class="tab-pane fade" id="nav-football" role="tabpanel" aria-labelledby="nav-football-tab">Football</div>
             <div class="tab-pane fade" id="nav-basketball" role="tabpanel" aria-labelledby="nav-basketball-tab">Basketball</div>
-            <div class="tab-pane fade" id="nav-volleyball" role="tabpanel" aria-labelledby="nav-volleyball-tab">Volleyball</div>
-            <div class="tab-pane fade" id="nav-dota" role="tabpanel" aria-labelledby="nav-dota-tab">Dota2</div>
+            <div class="tab-pane fade" id="nav-volleyball" role="tabpanel" aria-labelledby="nav-volleyball-tab">Volleyball</div>          
             <div class="tab-pane fade" id="nav-csgo" role="tabpanel" aria-labelledby="nav-csgo-tab">CSGO</div>
         </div>
 

@@ -25,19 +25,19 @@ namespace Ironwood.UI.Controllers
                 {
                     return RedirectToAction("Index","Admin");
                 }
-                else
-                {
-                    var _incomingMatches = await Mediator.Send(new GetAllIncomingMatchesQuery{});
+               
+            }
+            
+            var _incomingMatches = await Mediator.Send(new GetAllIncomingMatchesQuery{});
+            var _incomingDotaMatches = await Mediator.Send(new GetAllIncomingDotaMatchQuery{});
                                
                     var _viewMod = new HomePageVM
                     {
-                        IncomingMatch = _incomingMatches
-                        
+                        IncomingMatch = _incomingMatches,
+                        IncomingDotaMatches = _incomingDotaMatches                        
                     };
-                    return View(_viewMod);
-                }
-            }
-            return View();
+
+            return View(_viewMod);
         }
      
     }
